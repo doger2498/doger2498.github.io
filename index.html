@@ -10,11 +10,7 @@
 	<script src="bootstrap/js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-	<p class="doger_my_map"></p>
-=======
-	<p class="doger-my-map" style = "color:black;"></p>
->>>>>>> origin/master
+	<p class="doger_my_map">需要手机GPS</p>
 	<div id="app">
 		<div class="nav_left" v-bind:class="[errorClass ,show ? activeClass : '']">
 			<span class="glyphicon glyphicon-th-list" v-on:click="show = !show"></span>
@@ -25,17 +21,13 @@
 </body>
 <script src="js/index.js"></script>
 <script>
-		
-		//位置
-		$(".doger-my-map").html('正在定位...');
 		function getLocation(){   
 		    if (navigator.geolocation){   
 		        navigator.geolocation.getCurrentPosition(showPosition,showError);   
 		    }else{   
 		        alert("浏览器不支持地理定位。");   
 		    }   
-		} 
-		
+		}
 		function showPosition(position){
 //			$(".doger-my-map").html("纬度:"+position.coords.latitude +'，经度:'+ position.coords.longitude);
 			var latlon = position.coords.latitude+','+position.coords.longitude;
@@ -46,7 +38,7 @@
 				dataType: "jsonp", 
 				url: url,
 				beforeSend: function(){
-					$(".doger_my_map").html('正在定位...');
+//					$(".doger_my_map").html('正在定位...');
 				},
 				success: function (json) { 
 					if(json.status==0){
