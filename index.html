@@ -9,7 +9,7 @@
 	<script src="js/vue.js"></script>
 </head>
 <body>
-	<p class="doger-my-map" style = "color:black;">233</p>
+	<p class="doger-my-map" style = "color:black;"></p>
 	<div id="app">
 		<div class="nav_left" v-bind:class="[errorClass ,show ? activeClass : '']">
 			<span class="glyphicon glyphicon-th-list" v-on:click="show = !show"></span>
@@ -22,7 +22,7 @@
 <script>
 		
 		//位置
-//		$(".doger-my-map").html('正在定位...');
+		$(".doger-my-map").html('正在定位...');
 		function getLocation(){   
 		    if (navigator.geolocation){   
 		        navigator.geolocation.getCurrentPosition(showPosition,showError);   
