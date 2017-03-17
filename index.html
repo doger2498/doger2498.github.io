@@ -7,20 +7,22 @@
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
 	<link rel="stylesheet" href="css/index.css" />
 	<script src="js/vue.js"></script>
+	<script src="bootstrap/js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
+	<p class="doger_my_map"></p>
 	<div id="app">
 		<div class="nav_left" v-bind:class="[errorClass ,show ? activeClass : '']">
 			<span class="glyphicon glyphicon-th-list" v-on:click="show = !show"></span>
 		</div>
-		<p class="doger-my-map">233</p>
+		
 	</div>
 </body>
 <script src="js/index.js"></script>
 <script>
 		
 		//位置
-//		$(".doger-my-map").html('正在定位...');
+		$(".doger_my_map").text('正在定位...');
 		function getLocation(){   
 		    if (navigator.geolocation){   
 		        navigator.geolocation.getCurrentPosition(showPosition,showError);   
@@ -39,15 +41,15 @@
 				dataType: "jsonp", 
 				url: url,
 				beforeSend: function(){
-					$(".doger-my-map").html('正在定位...');
+					$(".doger_my_map").html('正在定位...');
 				},
 				success: function (json) { 
 					if(json.status==0){
-						$(".doger-my-map").html(json.result.formatted_address);
+						$(".doger_my_map").html(json.result.formatted_address);
 					}
 				},
 				error: function (XMLHttpRequest, textStatus, errorThrown) { 
-					$(".doger-my-map").html(latlon+"地址位置获取失败"); 
+					$(".doger_my_map").html(latlon+"地址位置获取失败"); 
 				}
 			});
 		}
