@@ -1,0 +1,173 @@
+/*body {
+	height: 10rem;
+	background: blue;
+}*/
+
+html,body {
+	width: 100%;
+	height: 100%;
+	font-family: "微软雅黑";
+	overflow-x: hidden;
+}
+
+.doger-box {
+	height: 100%;
+}
+
+.doger-wrapper {
+	width: 24rem;
+	height: calc(100% - 2.6rem);
+	float: left;
+	transform: translateX(-8rem);
+	transition: 1s;
+}
+
+.doger-left {
+	width: 7.9rem;
+	height: 100%;
+	float: left;	
+}
+
+.doger-left ul {
+	height: 100%;
+}
+
+.doger-left ul li {
+	width: 100%;
+	height: 12.5%;
+	text-align: left;
+	text-indent: 2.2em;
+	font-size: .6rem;
+	/*line-height: 3rem;*/
+	/*vertical-align: middle;*/
+	background: #252628;
+	position: relative;
+	border-top: 1px rgba(255,255,255,.2) solid;
+}
+
+.doger-left ul li:nth-child(1) {
+	border-top: none;
+}
+
+.doger-left ul li span {
+	color: white;
+	display: inline-block;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.doger-left ul li i {
+	font-size: 1rem;
+	position: absolute;
+	left: -1.8rem;
+	top: 60%;
+	transform: translateY(-50%);
+	/*position: absolute;
+	top: 55%;
+	transform: translateY(-50%);
+	left: -1.2rem;*/
+	/*line-height: 0;*/
+}
+
+.doger-right {
+	width: 16.1rem;
+	height: 100%;
+	/*background: url(../img/pabg-2.jpg) no-repeat top center;*/
+	/*background-size: cover;*/
+	float: left;
+	background: #f3f3f3;
+	position: relative;
+}
+
+.doger-main {
+	position: relative;
+	z-index: 99;
+}
+
+.doger-right p:nth-child(1){
+	font-size: 1rem;
+	margin-top: 1rem;
+	margin-left: 1rem;
+	color: black;
+	font-size: .9rem;
+	/*font-weight: bold;*/
+}
+
+.doger-right p:nth-child(1) i {
+	font-size: 1.3rem;
+	vertical-align: middle;
+	margin-right: .3rem;
+}
+
+.doger-top {
+	width: 16rem;
+	height: 2.6rem;
+	background: #252628;
+	float: left;
+}
+
+.doger-top img {
+	width: 2rem;
+	height: 2rem;
+	margin-top: .3rem;
+	margin-left: 1rem;
+	margin-right: .5rem;
+	float: left;
+}
+
+.doger-top span {
+	float: left;
+	color: white;
+	line-height: 2.4rem;
+	font-size: 1rem;
+}
+
+.doger-top p {
+	float: left;
+}
+
+.doger-time {
+	width: 80%;
+	margin: .5rem auto 0;
+	display: flex;
+	justify-content: space-around;
+}
+
+.doger-time img {
+	width: 10%;
+	height: 2.5rem;
+	/*flex: 1;*/
+	/*float: left;*/
+	/*justify-content: center;*/
+}
+
+.doger-work {
+	width: 60%;
+	margin: 2rem auto 0;
+}
+
+.doger-work button {
+	width: 100%;
+	height: 2rem;
+	border-radius: .3rem;
+	background: #603813;
+	color: white;
+	border: 0;
+	outline: none;
+	margin-bottom: .7rem;
+	background: #403B4A; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #403B4A, #9D9B89);
+	background: -moz-linear-gradient(to left, #403B4A, #9D9B89);
+	background: -o-linear-gradient(to left, #403B4A, #9D9B89);
+	background: -webkit-gradient(linear, 0 0, 100% 0, from(#403B4A), to(#9D9B89));
+	background: linear-gradient(to left, #403B4A, #9D9B89); /* Chrome 10-25, Safari 5.1-6 */	 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+
+.doger-map p:nth-child(1) {
+	font-size: .9rem;
+}
+
+.doger-map p:nth-child(2) {
+	text-align: center;
+}
