@@ -1,0 +1,130 @@
+<div class="doger-box" ng-controller="firstPage">
+	<lxm>
+		<div class="doger-top">
+			<p class="doger-title">
+				<img src="../img/icon.png" class="img-thumbnail" alt="" />
+				<span>Username</span>
+			</p>
+		</div>
+		<div class="doger-wrapper">
+			<div class="doger-left">
+				<ul>
+					<li><span><i class="iconfont icon-kaoqin4"></i>在线考勤</span></li>
+					<li><span><i class="iconfont icon-3333333"></i>个人通讯录</span></li>
+					<li><span><i class="iconfont icon-richeng"></i>日程事务</span></li>
+					<li><span><i class="iconfont icon-youxiang-shoujianxiang"></i>收件箱</span></li>
+					<li><span><i class="iconfont icon-ziyuan"></i>资源申请</span></li>
+					<li><span><i class="iconfont icon-touxiang"></i>个人信息</span></li>
+					<li><span><i class="iconfont icon-shenqing"></i>请假申请</span></li>
+					<li><span><i class="iconfont icon-zhuangxiufengge"></i>风格界面</span></li>
+				</ul>
+			</div>
+			
+			<div class="doger-right">
+				<div class="doger-main">
+					<p><i class="iconfont icon-kaoqin4"></i>在线考勤</p>
+					<div class="doger-time">
+						<img/>
+						<img/>
+						<img/>
+						<img/>
+						<img/>
+						<img/>
+						<img/>
+						<img/>
+					</div>
+					<div class="doger-map">
+						<p><i class="iconfont icon-dizhi2"></i>当前位置</p>
+						<p class="doger-my-map">xxxxxx</p>
+					</div>
+					<div class="doger-work">
+						<button>上午上班</button>
+						<button>上午下班</button><br><br><br>
+						<button>下午上班</button>
+						<button>下午下班</button>
+					</div>
+				</div>
+				<!--<ui-view>-->
+					
+				<!--</ui-view>-->
+			</div>
+			
+		</div>
+	</lxm>
+	<script>
+		//时间
+		setInterval(fnTime, 1000)
+		fnTime();
+		function fnTime() {
+			var myTime = new Date();
+			var iHour = myTime.getHours();
+			var iMin = myTime.getMinutes();
+			var iSec = myTime.getSeconds();
+			var str = ''
+			str = doub(iHour) + ':' + doub(iMin) + ':' + doub(iSec);
+//			$('.doger-my-time').text(str);
+			for(var i = 0; i < $('.doger-time img').length; i++) {
+				if(i == 2 || i == 5) {
+					$('.doger-right img')[i].src = '../img/time/colon.JPG';
+				} else {
+					$('.doger-right img')[i].src = '../img/time/' + str.charAt(i) + '.JPG'
+				}
+			}
+		}
+		function doub(n) {
+			return n < 10 ? '0' + n : '' + n
+		}
+		//位置
+//		$(".doger-my-map").html('正在定位...');
+		function getLocation(){   
+		    if (navigator.geolocation){   
+		        navigator.geolocation.getCurrentPosition(showPosition,showError);   
+		    }else{   
+		        alert("浏览器不支持地理定位。");   
+		    }   
+		} 
+		
+		function showPosition(position){
+//			$(".doger-my-map").html("纬度:"+position.coords.latitude +'，经度:'+ position.coords.longitude);
+			var latlon = position.coords.latitude+','+position.coords.longitude;
+			//baidu
+			var url = "http://api.map.baidu.com/geocoder/v2/?ak=C93b5178d7a8ebdb830b9b557abce78b&callback=renderReverse&location="+latlon+"&output=json&pois=0";
+			$.ajax({ 
+				type: "GET", 
+				dataType: "jsonp", 
+				url: url,
+				beforeSend: function(){
+					$(".doger-my-map").html('正在定位...');
+				},
+				success: function (json) { 
+					if(json.status==0){
+						$(".doger-my-map").html(json.result.formatted_address);
+					}
+				},
+				error: function (XMLHttpRequest, textStatus, errorThrown) { 
+					$(".doger-my-map").html(latlon+"地址位置获取失败"); 
+				}
+			});
+		}
+
+		function showError(error){
+			switch(error.code) {
+				case error.PERMISSION_DENIED:
+					alert("定位失败,用户拒绝请求地理定位");
+					break;
+				case error.POSITION_UNAVAILABLE:
+					alert("定位失败,位置信息是不可用");
+					break;
+				case error.TIMEOUT:
+					alert("定位失败,请求获取用户位置超时");
+					break;
+				case error.UNKNOWN_ERROR:
+					alert("定位失败,定位系统失效");
+					break;
+		    }
+		}
+
+		getLocation();
+
+	</script>
+</div>
