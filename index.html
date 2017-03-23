@@ -10,7 +10,9 @@
 	<script src="bootstrap/js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
-	<p class="doger_my_map">需要手机GPS</p>
+	<!--<p class="doger_my_map">需要手机GPS</p>-->
+	<button class="ssssss">点击</button>
+	<p class="doger_my_map">??</p>
 	<div id="app">
 		<div class="nav_left" v-bind:class="[errorClass ,show ? activeClass : '']">
 			<span class="glyphicon glyphicon-th-list" v-on:click="show = !show"></span>
@@ -68,7 +70,11 @@
 		    }
 		}
 
-		getLocation();
+		$('.ssssss').bind('click',function(){
+			getLocation();
+			
+		})
+
 
 	</script>
 </html>
