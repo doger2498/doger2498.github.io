@@ -1,165 +1,170 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-	<meta charset="UTF-8" />
-	<title>Document</title>
-	<link rel="stylesheet" href="css/rester.css" />
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
-	<link rel="stylesheet" href="css/index.css" />
-	<script src="js/vue.js"></script>
-	<script src="bootstrap/js/jquery-2.1.4.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="js/jquery-3.4.0.min.js"></script>
+	<script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.js"></script>
+	<script src="js/clipboard.js-master/dist/clipboard.js"></script>
+	<style type="text/css">
+		body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+		body{font:12px "宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%}
+		a{color:#172c45;text-decoration:none}
+		a:hover{color:#cd0200;text-decoration:underline}
+		em{font-style:normal}
+		li{list-style:none}
+		img{border:0;vertical-align:middle}
+		table{border-collapse:collapse;border-spacing:0}
+		p{word-wrap:break-word}
+		
+		div {
+			float: left;
+		}
+		
+		.hes{
+			float: left;
+			width: 100%;
+		}
+		
+		.hes li {
+			float: left;
+			width: 25%;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			font-size: 16px;
+		}
+		
+		.con {
+			float: left;
+			width: 100%;
+		}
+		
+		.con li {
+			float: left;
+			color: red;
+			width: 25%;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			font-size: 16px;
+		}
+		
+		
+		.myButton {
+			display: block;
+			margin-left: calc(50%-166px);
+			float: left;
+			-moz-box-shadow:inset 0px 0px 0px 0px #a4e271;
+			-webkit-box-shadow:inset 0px 0px 0px 0px #a4e271;
+			box-shadow:inset 0px 0px 0px 0px #a4e271;
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #89c403), color-stop(1, #77a809));
+			background:-moz-linear-gradient(top, #89c403 5%, #77a809 100%);
+			background:-webkit-linear-gradient(top, #89c403 5%, #77a809 100%);
+			background:-o-linear-gradient(top, #89c403 5%, #77a809 100%);
+			background:-ms-linear-gradient(top, #89c403 5%, #77a809 100%);
+			background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c403', endColorstr='#77a809',GradientType=0);
+			background-color:#89c403;
+			-moz-border-radius:6px;
+			-webkit-border-radius:6px;
+			border-radius:6px;
+			border:1px solid #74b807;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			font-size:18px;
+			font-weight:bold;
+			padding:17px 46px;
+			text-decoration:none;
+			text-shadow:0px 2px 16px #528009;
+		}
+		.myButton:hover {
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403));
+			background:-moz-linear-gradient(top, #77a809 5%, #89c403 100%);
+			background:-webkit-linear-gradient(top, #77a809 5%, #89c403 100%);
+			background:-o-linear-gradient(top, #77a809 5%, #89c403 100%);
+			background:-ms-linear-gradient(top, #77a809 5%, #89c403 100%);
+			background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403',GradientType=0);
+			background-color:#77a809;
+		}
+		.myButton:active {
+			position:relative;
+			top:1px;
+		}
+		
+	</style>
 </head>
 <body>
-	<!--<p class="doger_my_map">需要手机GPS</p>-->
-	<button class="ssssss">点击</button>
-	<p class="doger_my_map">??</p>
-	<div id="app">
-		<div class="nav_left" v-bind:class="[errorClass ,show ? activeClass : '']">
-			<span class="glyphicon glyphicon-th-list" v-on:click="show = !show"></span>
-			
+	<div>
+		<!-- <a href="#" class="myButton">选择文件</a> -->
+		<input type="file" id="files" class="txt" charset = "utf-8" />
+		<ul class="hes">
+			<li>QQ</li>
+			<li>Pssword</li>
+			<li>区服</li>
+			<li>Phone</li>
+		</ul>
+		<div class="con">
+			<!-- <ul>
+				<li>1876839561</li>
+				<li>ffff2222</li>
+				<li>广东2区</li>
+				<li>17086044713</li>
+			</ul> -->
 		</div>
-		
+		<button class="btn">复制整列QQ</button>
+		<div class="qq"></div>
 	</div>
 </body>
-<script src="js/index.js"></script>
-<script>
-//		function getLocation(){   
-//		    if (navigator.geolocation){   
-//		        navigator.geolocation.getCurrentPosition(showPosition,showError);   
-//		    }else{   
-//		        alert("浏览器不支持地理定位。");   
-//		    }   
-//		}
-//		function showPosition(position){
-////			$(".doger-my-map").html("纬度:"+position.coords.latitude +'，经度:'+ position.coords.longitude);
-//			var latlon = position.coords.latitude+','+position.coords.longitude;
-//			//baidu
-//			var url = "http://api.map.baidu.com/geocoder/v2/?ak=C93b5178d7a8ebdb830b9b557abce78b&callback=renderReverse&location="+latlon+"&output=json&pois=0";
-//			$.ajax({ 
-//				type: "GET", 
-//				dataType: "jsonp", 
-//				url: url,
-//				beforeSend: function(){
-////					$(".doger_my_map").html('正在定位...');
-//				},
-//				success: function (json) { 
-//					if(json.status==0){
-//						$(".doger_my_map").html(json.result.formatted_address);
-//					}
-//				},
-//				error: function (XMLHttpRequest, textStatus, errorThrown) { 
-//					$(".doger_my_map").html(latlon+"地址位置获取失败"); 
-//				}
-//			});
-//		}
-//
-//		function showError(error){
-//			switch(error.code) {
-//				case error.PERMISSION_DENIED:
-//					alert("定位失败,用户拒绝请求地理定位");
-//					break;
-//				case error.POSITION_UNAVAILABLE:
-//					alert("定位失败,位置信息是不可用");
-//					break;
-//				case error.TIMEOUT:
-//					alert("定位失败,请求获取用户位置超时");
-//					break;
-//				case error.UNKNOWN_ERROR:
-//					alert("定位失败,定位系统失效");
-//					break;
-//		    }
-//		}
-
-		$('.ssssss').bind('click',function(){
-			function Location() {};
-		})
-
-	
- 
-    Location.prototype.getLocation = function (callback) {
-        var options = {
-            enableHighAccuracy: true,
-            maximumAge: 1000
-        };
-        this.callback = Object.prototype.toString.call(callback) == "[object Function]" ?
-            callback :
-        function (address) {
-            alert(address.province + address.city);
-            console.log("getocation(callbackFunction) 可获得定位信息对象");
-        };
-        var self = this;
-        if (navigator.geolocation) {
-            //浏览器支持geolocation
-            navigator.geolocation.getCurrentPosition(function (position) {
-                //经度
-                var longitude = position.coords.longitude;
-                //纬度
-                var latitude = position.coords.latitude;
-                self.loadMapApi(longitude, latitude);
-            }, self.onError, options);
-        } else {
-            //浏览器不支持geolocation
-        }
-    };
- 
-    Location.prototype.loadMapApi = function (longitude, latitude) {
-        var self = this;
-        var oHead = document.getElementsByTagName('HEAD').item(0);
-        var oScript = document.createElement("script");
-        oScript.type = "text/javascript";
-        oScript.src = "http://api.map.baidu.com/getscript?v=2.0&ak=A396783ee700cfdb9ba1df281ce36862&services=&t=20140930184510";
-        oHead.appendChild(oScript);
-        oScript.onload = function (date) {
-            var point = new BMap.Point(longitude, latitude);
-            var gc = new BMap.Geocoder();
-            gc.getLocation(point, function (rs) {
-                var addComp = rs.addressComponents;
-                self.callback(addComp);
-            });
-        }
-    };
- 
-    Location.prototype.onError = function (error) {
-        switch (error.code) {
-        case 1:
-            alert("位置服务被拒绝");
-            break;
-        case 2:
-            alert("暂时获取不到位置信息");
-            break;
-        case 3:
-            alert("获取信息超时");
-            break;
-        case 4:
-            alert("未知错误");
-            break;
-        }
-    };
- 
-    //调用
-    var local = new Location();
-    local.getLocation(function (res) {
-        //此处就是返回的地理位置信息
-        console.log(res);
-        //JSON.stringify(res)，把返回的对象转为字符串了，自己根据需求截取下就好
-        var resstr = JSON.stringify(res);
-        alert(res,resstr);
-    });
-	</script>
+<script type="text/javascript">
+	var inputElement = document.getElementById("files");
+	var   gettype=Object.prototype.toString;
+     inputElement.addEventListener("change", handleFiles, false);
+     function handleFiles() {
+        var selectedFile = document.getElementById("files").files[0];//获取读取的File对象
+        var name = selectedFile.name;//读取选中文件的文件名
+        var size = selectedFile.size;//读取选中文件的大小
+        console.log("文件名:"+name+"大小："+size);
+        var reader = new FileReader();//这里是核心！！！读取操作就是由它完成的。
+         reader.readAsText(selectedFile);//读取文件的内容
+         reader.onload = function(){
+			 var str = this.result;
+			 var rowArray = str.split("\n");
+			 for (var i = 0; i < rowArray.length; i++) {
+				rowArray[i] = rowArray[i].split("----");  //将行数组的第i位 按照","分割 变成二维数组
+				$(".con").append('<ul><li>'+rowArray[i][0]+'</li><li>'+rowArray[i][1]+'</li><li>'+rowArray[i][2]+'</li><li>'+rowArray[i][3]+'</li></ul>');
+				
+				var qqnum = rowArray[i][0];
+				$(".qq").append(qqnum+"<br/>");
+				console.log(typeof qqnum);
+			}
+			
+			 //var arr = rowArray[i][0].join('&');
+			 console.log(rowArray);//当读取完成之后会回调这个函数，然后此时文件的内容存储到了result中。直接操作即可。
+			 console.log(rowArray[0][1])
+			 
+			 //复制功能
+			var clipboard = new ClipboardJS('.btn', {
+			    target: function() {
+			        return document.querySelector('.qq');
+			    }
+			});
+			
+			clipboard.on('success', function(e) {
+			    //console.log(e);
+			    alert('复制成功！')
+			});
+			
+			clipboard.on('error', function(e) {
+				alert('复制失败！')
+			    console.log(e);
+			});
+         };
+     }
+</script>
 </html>
- -->
