@@ -101,7 +101,17 @@
 </head>
 <body>
 	<div>
-		<!-- <a href="#" class="myButton">选择文件</a> -->
+		var x = 1;
+const btn = document.getElementById('msg_send_bt')
+function dulunche(){
+document.getElementById('pub_msg_input').value = '弹幕内容 ';
+  btn.setAttribute('class', 'btn-sendMsg hiido_stat enable');
+  btn.click();
+}
+var t1 = window.setInterval("dulunche()",3000);
+
+3000频率有点高 建议改成6000以上 当然我只是建议
+		<!--
 		<input type="file" id="files" class="txt" charset = "utf-8" />
 		<ul class="hes">
 			<li>QQ</li>
@@ -119,6 +129,7 @@
 		</div>
 		<button class="btn">复制整列QQ</button>
 		<div class="qq"></div>
+		-->
 	</div>
 </body>
 <script type="text/javascript">
