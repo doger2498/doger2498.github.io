@@ -101,6 +101,14 @@
 </head>
 <body>
 	<div>
+		var event = document.createEvent('Event');
+		event.initEvent('input', true, true);
+		function fun123(){
+		$('.chat-input.border-box').val("前方高能！！");
+		$('.chat-input.border-box')[0].dispatchEvent(event);
+		$('.bl-button.live-skin-highlight-button-bg.bl-button--primary.bl-button--small').click();
+		}setInterval("fun123()","5000");
+		<!--
 		var x = 1;<br/>
 		const btn = document.getElementById('msg_send_bt')<br/>
 		function dulunche(){<br/>
@@ -110,7 +118,6 @@
 		}<br/>
 		var t1 = window.setInterval("dulunche()",3000);<br/>
 		3000频率有点高 建议改成6000以上 当然我只是建议
-		<!--
 		<input type="file" id="files" class="txt" charset = "utf-8" />
 		<ul class="hes">
 			<li>QQ</li>
