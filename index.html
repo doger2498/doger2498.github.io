@@ -101,12 +101,12 @@
 </head>
 <body>
 	<div>
-		var event = document.createEvent('Event');
-		event.initEvent('input', true, true);
-		function fun123(){
-		$('.chat-input.border-box').val("前方高能！！");
-		$('.chat-input.border-box')[0].dispatchEvent(event);
-		$('.bl-button.live-skin-highlight-button-bg.bl-button--primary.bl-button--small').click();
+		var event = document.createEvent('Event');<br/>
+		event.initEvent('input', true, true);<br/>
+		function fun123(){<br/>
+		$('.chat-input.border-box').val("前方高能！！");<br/>
+		$('.chat-input.border-box')[0].dispatchEvent(event);<br/>
+		$('.bl-button.live-skin-highlight-button-bg.bl-button--primary.bl-button--small').click();<br/>
 		}setInterval("fun123()","5000");
 		<!--
 		var x = 1;<br/>
